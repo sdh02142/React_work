@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Async-Await</h1>
+    <script>
+        console.log('Start');
+        const taskA = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    resolve('One');
+                }, 2000)
+            });
+        };
+
+        const taskB = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    // resolve('Two');
+                    // reject({code:'Fail', msg:'Rejected'});
+                    reject(new Error('Error 객체를 통한 message'));
+                }, 1000)
+            });
+        };
+
+        const taskC = () => {
+            return new  Promise((resolve, reject) => {
+                setTimeout(()=>{
+                    resolve('Three');
+                }, 1500)
+            });
+        };
+
+        /*  -------------------------  */
+        // 호출
+        const test = async () => {
+            try {
+                let resultA = await taskA();
+                console.log(resultA);
+
+                let resultB = await taskB();
+                console.log(resultB);
+
+                let resultC = await taskC();
+                console.log(resultC);
+            } catch (err) {
+                // console.log(err.code + " : " + err.msg);
+                console.log(err);
+            } finally {
+                console.log('async test() finished');
+            }
+            
+        }
+
+        const re = test();
+        console.log(re);
+        // async가 붙은 함수는 결과값이 자동으로 Promise 객체로 변환됨.
+        console.log('End');
+    </script>
+</body>
+</html>

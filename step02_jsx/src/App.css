@@ -1,0 +1,9 @@
+a{
+  text-decoration: none;
+}
+
+.test{
+  text-decoration: line-through;
+  color: aliceblue;
+  background-color: blue;
+}

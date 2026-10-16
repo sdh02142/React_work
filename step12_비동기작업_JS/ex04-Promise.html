@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promise - JavaScript 내장 객체</h1>
+    <script>
+        console.log('Start');
+        const pro = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                console.log(resolve);
+                console.log(reject);
+
+                // resolve('Success');
+                // reject('Failure');
+                // resolve([{name : 'John', age : 20},{name : 'Cane', age : 24}]);
+                reject('Failure');
+            },2000);
+        });
+
+        console.log(pro); // pending : 작업 대기중 / Result : undefined
+
+        pro
+        .then((r)=>{r.map(o=>console.log(o))}) // => r은 resolve() 함수의 매개변수이자 결과값.
+        .catch((f)=>{console.log(f);}) // f는 reject() 함수의 매개변수이자 결과값.
+        .finally(()=>console.log('setTimeout() 비동기 함수 동기적 작업 완료.'));
+        console.log('End');
+    </script>
+</body>
+</html>

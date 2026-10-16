@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Callback Hell</h1>
+    <script>
+        console.log('Start'); // stack 1번
+        
+        /*
+        // 비동기함수
+        setTimeout(()=>{
+            console.log('setTimeout(1) called') // Web API (Queue)3번
+        }, 2000);
+
+        setTimeout(()=>{
+            console.log('setTimeout(2) called') // Web API (Queue, FIFO)1번
+        }, 1000); // 가장 짧은 대기시간으로 인해 결과가 Queue에 제일 먼저 들어와서 stack 작업이 전부 끝나고 
+                  // 첫번째로 결과가 Event Loop에 의해 표출됨.
+
+        setTimeout(()=>{
+            console.log('setTimeout(3) called') // Web API (Queue)2번
+        }, 1500);
+        */
+        // 비동기함수들의 동기화
+        setTimeout(()=>{
+            console.log('setTimeout(1) called');
+            setTimeout(()=>{
+            console.log('setTimeout(2) called');
+            setTimeout(()=>{
+            console.log('setTimeout(3) called')
+        }, 1500);
+        }, 1000);
+        }, 2000);
+        /*
+            개발자 입장에서 가독성이 떨어짐.(순차적으로 실행되지만 결과 예측 및 로직 파악에 어려움이 있음.)
+        */
+
+        console.log('End'); // stack 2번
+    </script>
+</body>
+</html>

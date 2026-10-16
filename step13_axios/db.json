@@ -1,0 +1,47 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Hello React",
+      "author": "John"
+    },
+    {
+      "title": "Axios",
+      "author": "Vain",
+      "id": "2"
+    },
+    {
+      "title": "314134",
+      "author": "134134",
+      "id": "WHD-W6JIpVc"
+    },
+    {
+      "title": "2635623",
+      "author": "23562356",
+      "id": "FCfaxItfskg"
+    },
+    {
+      "id": "amvxR9G4pNg",
+      "title": "qwrqwer",
+      "author": "asdfasdf"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John",
+      "age": "20"
+    },
+    {
+      "name": "Cane",
+      "age": "18",
+      "id": "2"
+    },
+    {
+      "id": "8fp_TE0JsKc",
+      "name": "134314",
+      "age": "asdfqwersadf"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
